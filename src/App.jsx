@@ -6,6 +6,7 @@ import { PageWraper } from './components/PageWraper'
 import { PuppiesList } from './components/PuppiesList'
 import { Search } from './components/Search'
 import { Shortlist } from './components/ShortList'
+import { puppies } from './data/puppies'
 
 export default function App() {
 
@@ -18,7 +19,7 @@ export default function App() {
             <Search />
             <Shortlist />
           </div>
-          <PuppiesList />
+          <PuppiesList puppies={puppies} />
           <NewPuppyForm />
         </main>
       </Container>
