@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Container } from './components/Container'
 import { Header } from './components/Header'
 import { NewPuppyForm } from './components/NewPuppyForm'
@@ -6,8 +7,10 @@ import { PuppiesList } from './components/PuppiesList'
 import { Search } from './components/Search'
 import { Shortlist } from './components/ShortList'
 import { puppies } from './data/puppies'
+import { Puppy } from './types'
 
 export default function App() {
+  const[liked, setLiked] = useState<Puppy["id"][]>([1, 3]);
 
   return (
     <PageWraper>
@@ -18,7 +21,7 @@ export default function App() {
             <Search />
             <Shortlist />
           </div>
-          <PuppiesList puppies={puppies} />
+          <PuppiesList puppies={puppies} liked={liked} setLiked={setLiked}/>
           <NewPuppyForm />
         </main>
       </Container>
