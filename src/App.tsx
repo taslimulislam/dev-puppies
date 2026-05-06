@@ -8,7 +8,6 @@ import { Search } from './components/Search'
 import { Shortlist } from './components/ShortList'
 import { puppies } from './data/puppies'
 import { Puppy } from './types'
-import { LikedContext } from './context/liked-context'
 
 export default function App() {
   
@@ -25,15 +24,14 @@ export default function App() {
 function Main() {
 
   const[liked, setLiked] = useState<Puppy["id"][]>([1, 3]);
+  const[searchQuery, setSearchQuery] = useState<string>('hello');
   return (
     <main>
-      <LikedContext value={{liked, setLiked}}>
-        <div className="mt-24 grid gap-8 sm:grid-cols-2">
-          <Search />
-          <Shortlist puppies={puppies}/>
-        </div>
-        <PuppiesList puppies={puppies}/>
-      </LikedContext>
+      <div className="mt-24 grid gap-8 sm:grid-cols-2">
+        <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
+        <Shortlist puppies={puppies}  liked={liked} setLiked={setLiked}/>
+      </div>
+      <PuppiesList searchQuery={searchQuery} puppies={puppies} liked={liked} setLiked={setLiked}/>
       <NewPuppyForm />
     </main>
   )
