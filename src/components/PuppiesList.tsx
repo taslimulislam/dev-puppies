@@ -13,7 +13,7 @@ export function PuppiesList(
     {
         searchQuery: string;
         puppies: Puppy[];
-        like: Puppy["id"][];
+        liked: Puppy["id"][];
         setLiked: Dispatch<SetStateAction<Puppy["id"][]>>;
 
     }) {
