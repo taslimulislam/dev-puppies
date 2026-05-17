@@ -45,7 +45,7 @@ const puppyPromise = getPuppies();
 function Main() {
 
   const apiPupies = use(puppyPromise);
-  const[liked, setLiked] = useState<Puppy["id"][]>([1, 3]);
+  const[liked, setLiked] = useState<Puppy["id"][]>([]);
   const[searchQuery, setSearchQuery] = useState<string>('');
   const [puppies, setPuppies] = useState<Puppy[]>(apiPupies) 
   return (
