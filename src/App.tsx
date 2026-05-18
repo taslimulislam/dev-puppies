@@ -45,16 +45,16 @@ const puppyPromise = getPuppies();
 function Main() {
 
   const apiPupies = use(puppyPromise);
-  const[liked, setLiked] = useState<Puppy["id"][]>([]);
+  
   const[searchQuery, setSearchQuery] = useState<string>('');
   const [puppies, setPuppies] = useState<Puppy[]>(apiPupies) 
   return (
     <main>
       <div className="mt-24 grid gap-8 sm:grid-cols-2">
         <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
-        <Shortlist puppies={puppies}  liked={liked} setLiked={setLiked}/>
+        <Shortlist puppies={puppies} setPuppies={setPuppies} />
       </div>
-      <PuppiesList searchQuery={searchQuery} puppies={puppies} liked={liked} setLiked={setLiked}/>
+      <PuppiesList searchQuery={searchQuery} puppies={puppies} setPuppies={setPuppies}/>
       <NewPuppyForm puppies={puppies} setPuppies={setPuppies}/>
     </main>
   )

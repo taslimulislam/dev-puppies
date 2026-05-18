@@ -6,15 +6,13 @@ export function PuppiesList(
     { 
         searchQuery,
         puppies,
-        liked,
-        setLiked
+        setPuppies
     }
         : 
     {
         searchQuery: string;
         puppies: Puppy[];
-        liked: Puppy["id"][];
-        setLiked: Dispatch<SetStateAction<Puppy["id"][]>>;
+        setPuppies: Dispatch<SetStateAction<Puppy[]>>
 
     }) {
     return (
@@ -22,7 +20,7 @@ export function PuppiesList(
             {puppies
             .filter((pup) => pup.trait.toLowerCase().includes(searchQuery.toLowerCase()))
             .map((puppy) => (
-                <PuppyCard key={puppy.id} puppy={puppy} liked={liked} setLiked={setLiked}/>
+                <PuppyCard key={puppy.id} puppy={puppy} setPuppies={setPuppies}/>
             ))}
         </ul>
     )
@@ -30,12 +28,11 @@ export function PuppiesList(
 
 type PuppyCardProps = {
     puppy: Puppy;
-    liked: Puppy["id"][];
-    setLiked: Dispatch<SetStateAction<Puppy["id"][]>>;
+    setPuppies: Dispatch<SetStateAction<Puppy[]>>
 
 }
 
-function PuppyCard({ puppy, liked, setLiked }: PuppyCardProps) {
+function PuppyCard({ puppy, setPuppies }: PuppyCardProps) {
     return (
         <li key={puppy.id} className="overflow-clip rounded-lg bg-white shadow-md ring ring-black/5 hover:-translate-y-0.5"
             >
@@ -50,7 +47,7 @@ function PuppyCard({ puppy, liked, setLiked }: PuppyCardProps) {
                 <span className="text-slate-300">·</span>
                 <p className="text-slate-500">{puppy.trait}</p>
                 </div>
-                <LikeToggle puppy={puppy}/>
+                <LikeToggle puppy={puppy} setPuppies={setPuppies}/>
             </div>
         </li>
     )
