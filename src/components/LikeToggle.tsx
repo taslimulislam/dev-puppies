@@ -1,5 +1,5 @@
 import { Heart, LoaderCircle } from "lucide-react";
-import React, { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Puppy } from "../types";
 import { toggleLikeStatus } from "../queries";
 

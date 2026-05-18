@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from "react"
+import { Dispatch, SetStateAction } from "react"
 import { Puppy } from "../types"
 import { useFormStatus } from "react-dom";
 import { createPuppy } from "../queries";
@@ -28,11 +28,6 @@ export function NewPuppyForm({
                   setPuppies([...puppies, response.data]);
                 }
               }}
-              // onSubmit={(e) => {
-                //   e.preventDefault();
-                //     console.log(Object.fromEntries(formData))
-              //   const formData = new FormData(e.target);
-              // }}
               className="mt-4 flex w-full flex-col items-start gap-4">
                 <div className="grid w-full gap-6 md:grid-cols-3">
                   <fieldset className="flex w-full flex-col gap-1">
