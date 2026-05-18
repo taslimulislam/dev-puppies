@@ -28,7 +28,7 @@ export default function App() {
           )}>
 
           <Suspense fallback={
-            <div className="mt-12 bg-white-100 p-6 shadow ring ring-black/5">
+            <div className="mt-12  p-6 flex items-center justify-center">
               <LoaderCircle className='animate-spin stroke-slate-300'/>
             </div>
             }>
